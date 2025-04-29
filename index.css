@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.cart-item-enter {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.cart-item-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 300ms ease;
+}
+
+.cart-item-exit {
+    opacity: 1;
+}
+
+.cart-item-exit-active {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 300ms ease;
+}

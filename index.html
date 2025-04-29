@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepRight - Premium Footwear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+<!-- Header/Navigation -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-shoe-prints text-2xl text-indigo-600"></i>
+            <span class="text-xl font-bold text-gray-800">StepRight</span>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+            <a href="#" class="text-gray-800 hover:text-indigo-600 font-medium">Home</a>
+            <a href="#" class="text-gray-800 hover:text-indigo-600 font-medium">Men</a>
+            <a href="#" class="text-gray-800 hover:text-indigo-600 font-medium">Women</a>
+            <a href="#" class="text-gray-800 hover:text-indigo-600 font-medium">Kids</a>
+            <a href="#" class="text-gray-800 hover:text-indigo-600 font-medium">Sale</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <button id="search-btn" class="text-gray-600 hover:text-indigo-600">
+                <i class="fas fa-search"></i>
+            </button>
+            <button id="cart-btn" class="text-gray-600 hover:text-indigo-600 relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </button>
+            <button class="md:hidden text-gray-600 hover:text-indigo-600" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
+        <a href="#" class="block py-2 text-gray-800 hover:text-indigo-600">Home</a>
+        <a href="#" class="block py-2 text-gray-800 hover:text-indigo-600">Men</a>
+        <a href="#" class="block py-2 text-gray-800 hover:text-indigo-600">Women</a>
+        <a href="#" class="block py-2 text-gray-800 hover:text-indigo-600">Kids</a>
+        <a href="#" class="block py-2 text-gray-800 hover:text-indigo-600">Sale</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+        <div class="container mx-auto flex">
+            <input type="text" placeholder="Search for shoes..." class="flex-grow border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Shopping Cart Sidebar -->
+<div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+        <h3 class="text-lg font-semibold">Your Cart</h3>
+        <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div id="cart-items" class="p-4 space-y-4">
+        <!-- Cart items will be added here dynamically -->
+        <div class="text-center py-8 text-gray-500">
+            <i class="fas fa-shopping-cart text-4xl mb-2"></i>
+            <p>Your cart is empty</p>
+        </div>
+    </div>
+    <div class="p-4 border-t border-gray-200">
+        <div class="flex justify-between mb-4">
+            <span class="font-semibold">Subtotal:</span>
+            <span id="cart-subtotal" class="font-semibold">P0.00</span>
+        </div>
+        <button class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700">Proceed to Checkout</button>
+    </div>
+</div>
+<div id="cart-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+
+<!-- Hero Section -->
+<section class="hero-gradient py-16 md:py-24">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Step Into Comfort & Style</h1>
+            <p class="text-lg text-gray-600 mb-6">Discover our premium collection of shoes designed for every occasion. Quality craftsmanship meets modern design.</p>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 font-medium">Shop Now</button>
+                <button class="border border-gray-300 bg-white text-gray-800 px-6 py-3 rounded-md hover:bg-gray-50 font-medium">Learn More</button>
+            </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Premium Shoes" class="rounded-lg shadow-xl w-full max-w-md">
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Shop by Category</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <a href="#" class="block">
+                    <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Men's Shoes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Men's</h3>
+                        <p class="text-gray-600">Explore Collection</p>
+                    </div>
+                </a>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <a href="#" class="block">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Women's Shoes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Women's</h3>
+                        <p class="text-gray-600">Explore Collection</p>
+                    </div>
+                </a>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <a href="#" class="block">
+                    <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Kids' Shoes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Kids'</h3>
+                        <p class="text-gray-600">Explore Collection</p>
+                    </div>
+                </a>
+            </div>
+            <div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <a href="#" class="block">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Sports Shoes" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Sports</h3>
+                        <p class="text-gray-600">Explore Collection</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">Featured Products</h2>
+            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">View All</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="products-container">
+            <!-- Product cards will be added here dynamically -->
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Our Customers Say</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/42.jpg" alt="Customer">
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">Anna M.</p>
+                        <div class="flex space-x-1 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"The most comfortable shoes I've ever worn! I bought them for work and can stand all day without any pain."</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">Tebogo K.</p>
+                        <div class="flex space-x-1 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"Great quality for the price. The shoes arrived quickly and fit perfectly. Will definitely buy from StepRight again."</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer">
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">Lorato P.</p>
+                        <div class="flex space-x-1 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600">"I love the stylish designs! I get compliments every time I wear my StepRight shoes. The customer service is excellent too."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-12 bg-indigo-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+        <p class="text-indigo-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter to receive updates on new arrivals, special offers, and exclusive discounts.</p>
+        <div class="max-w-md mx-auto flex">
+            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-md focus:outline-none text-gray-900">
+            <button class="bg-indigo-800 px-6 py-3 rounded-r-md hover:bg-indigo-900 font-medium">Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-12 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-shoe-prints text-2xl text-indigo-400"></i>
+                    <span class="text-xl font-bold">StepRight</span>
+                </div>
+                <p class="text-gray-400">Quality footwear for every step of your journey. Comfort, style, and durability in every pair.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Men's Shoes</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Women's Shoes</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Kids' Shoes</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Sports Shoes</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Help</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Customer Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Track Order</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Returns & Exchanges</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Shipping Information</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> Gaborone, Botswana</li>
+                    <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +267 72 460 874</li>
+                    <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@stepright.co.bw</li>
+                </ul>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 StepRight. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="index.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
